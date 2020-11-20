@@ -10,11 +10,11 @@ class Game {
   constructor() {
     this.missed = 0;
     this.phrases = [
-      'Tell me what you see',
-      'How are you',
-      'Can you guess the phrase',
-      'I love JavaScript',
-      'Web development is fun'
+      new Phrase('Tell me what you see'),
+      new Phrase('How are you'),
+      new Phrase('Can you guess the phrase'),
+      new Phrase('I love JavaScript'),
+      new Phrase('Web development is fun')
     ];
     this.activePhrase = null;
     this.enableKeyboard = true;
@@ -33,7 +33,7 @@ class Game {
       capture: false, once: true, passive: false
     });
 
-    this.activePhrase = new Phrase(this.getRandomPhrase());
+    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
     
     const hearts = document.querySelectorAll('.tries img');
